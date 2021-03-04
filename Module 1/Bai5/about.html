@@ -1,9 +1,52 @@
 <html>
     <head>
         <title>About</title>
+        <style>
+            
+        </style>
     </head>
     <body>
         <h1>About page</h1>
         <a href="index.html">Go to home</a>
+        <!-- window + arrows function -->
+        <button type="submit">Sign in</button>
+        <button type="reset">cancel</button>
+
+        <form action="https://google.com" method="POST">
+            <input type="text" id="">
+            <input type="submit" value="Search">
+        </form>
+
+        <form action="index.html" method="GET">
+            <input type="checkbox" checked> Football
+
+            <input class="c1" type="color">
+            <input type="date" min="2003-01-01" max="2003-12-31">
+            <input type="datetime-local" name="" id="">
+            <input type="email" required>
+            <input type="file" accept="image/*">
+            <input type="submit" value="register">
+            <input type="month">
+            <input type="number">
+            <input id="pw" type="password" name="pw">
+            <button onclick="document.getElementById('pw').type='text'; this.innerText='Hide'">Show</button>
+            <input type="radio" name="gender" checked> male
+            <input type="radio" name="gender"> female
+            <input type="range">
+            <input type="reset" value="Cancel">
+            <input type="search">
+            <input class="c1" type="tel">
+            <input type="time">
+            <input type="url" required>
+            <input type="week">
+
+
+        </form>
+        <script>
+            // window.alert(window.innerHeight + " " + window.innerWidth);
+            // window.alert(window.location.href);
+            // window.prompt("please input your name:")
+            window.document.write('hello world')
+        </script>
     </body>
 </html>

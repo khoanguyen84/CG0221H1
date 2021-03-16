@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::after,*::before{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table, th,tr,td{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        td, th{
+            padding: 5px 20px;
+        }
+        thead>tr{
+            background-color: gray;
+        }
+        td:nth-child(2){
+            width: 400px;
+        }
+        table{
+            margin: 0px auto;
+        }
+        ul{
+            width: 100%;
+            margin: 0px auto;
+            list-style: none;
+        }
+        ul>li{
+            float: left;
+        }
+        ul>li:not(:last-child){
+            margin-right: 1px;
+        }
+        ul>li>button{
+            padding:15px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+        .active{
+            background-color: orange;
+        }
+        ul>li>button:hover{
+            background-color: green;
+        }
+        tbody>tr:nth-child(even){
+            background-color: #f0f0f0;
+        }
+        tbody>tr:hover{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>#Id</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <ul id="pagination">
+    </ul>
+    <script>
+
+        let products = [];
+        let size = 65;
+        let pagenumber = 10;
+        for(let i=0; i<size;i++){
+            products.push(`pdt_${Math.floor(Math.random()*90 + 10)}`);
+        }
+
+        let tbody = document.getElementsByTagName('tbody')[0];
+
+        for(let i=0; i< size; i++){
+            tbody.innerHTML+=`<tr>
+                                <td>${i+1}</td>
+                                <td>${products[i]}</td>
+                            </tr>`;
+        }
+
+        let pagination = document.getElementById('pagination');
+        for(let i=0;i<pagenumber;i++){
+            pagination.innerHTML+=`
+                                    <li><button class=${i==4 ? 'active': ''}>${i+1}</button></li>
+                                `;
+        }
+    </script>
+</body>
+</html>

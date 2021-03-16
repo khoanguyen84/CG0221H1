@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,*::after,*::before{
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        table,tr,td{
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        td{
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .cell_x{
+            background-color: orange;
+        }
+        .cell_o{
+            background-color: green;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <table>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        let caro=[];
+        let size = 8;
+        let player = 1;
+        for(let i=0;i<size;i++){
+            let arr = [];
+            for(let j=0;j<size;j++){
+                arr[j] = 0;
+            }
+            caro.push(arr);
+        }
+
+        let caro_table = document.getElementsByTagName('tbody')[0];
+        let caro_str ="";
+        for(let i=0;i<size;i++){
+            caro_str +='<tr>';
+                for(let j=0;j<size;j++){
+                    caro_str+=`<td class="${caro[i][j] == 1 ? 'cell_x' : (caro[i][j]== 10 ? 'cell_o' : '')}" onclick="cell(${i},${j})">&nbsp;</td>`
+                }
+                caro_str+='</tr>';
+        }
+        caro_table.innerHTML = caro_str;
+        function cell(row, col){
+            if(caro[row][col] == 0){
+                // alert(`row: ${row}, col: ${col}`)
+                if(player == 1){
+                caro[row][col] = 1;
+                
+                let caro_table = document.getElementsByTagName('tbody')[0];
+                let caro_str ="";
+                for(let i=0;i<size;i++){
+                    caro_str +='<tr>';
+                        for(let j=0;j<size;j++){
+                            caro_str+=`<td class="${caro[i][j] == 1 ? 'cell_x' : (caro[i][j]== 10 ? 'cell_o' : '')}" onclick="cell(${i},${j})">${caro[i][j] == 1? 'X' : (caro[i][j] == 10 ? 'O' : '&nbsp;')}</td>`
+                        }
+                        caro_str+='</tr>';
+                }
+                caro_table.innerHTML = caro_str;
+                player = 2;
+                }
+                else{
+                    caro[row][col] = 10;
+                    let caro_table = document.getElementsByTagName('tbody')[0];
+                    let caro_str ="";
+                    for(let i=0;i<size;i++){
+                        caro_str +='<tr>';
+                            for(let j=0;j<size;j++){
+                                caro_str+=`<td class="${caro[i][j] == 1 ? 'cell_x' : (caro[i][j]== 10 ? 'cell_o' : '')}"  onclick="cell(${i},${j})">${caro[i][j] == 1? 'X' : (caro[i][j] == 10 ? 'O' : '&nbsp;')}</td>`
+                            }
+                            caro_str+='</tr>';
+                    }
+                    caro_table.innerHTML = caro_str;
+                    player = 1;
+                }
+            }
+            else{
+                alert('invalid');
+            }
+            
+        }
+    </script>
+</body>
+</html>

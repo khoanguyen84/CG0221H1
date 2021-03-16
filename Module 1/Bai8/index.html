@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr=[];
+        let size = 10;
+        for(let i=0; i< size; i++){
+            arr[i] = Math.floor(Math.random()*10 + 1);
+        }
+
+        for(let item of arr){
+            if(arr.indexOf(item) != (arr.length-1)){
+                document.write(`${item}-`);
+            }else{
+                document.write(`${item}`);
+            }
+        }
+        document.write('<br>');
+        document.write(arr.toString())
+        document.write('<br>');
+        document.write(arr.join('-'))
+        let total = 0;
+        // for(let item of arr){
+        //     total += item;
+        // }
+        let index = 0;
+        do{
+            total+=arr[index];
+            index++;
+        }
+        while(index < arr.length)
+        document.write(`<br> total of arr : ${total}`);
+
+        let sum = arr.reduce(function(total, value, index){
+            return total+=value;
+            // total += arr[index];
+        });
+        document.write(`<br> total of arr : ${sum}`);
+        // ngẫu nhiên 1 số từ [min, max]
+        //Math.floor(Math.randm()(max-min + 1) + min)
+
+        // [1, 10]
+        //Math.floor(Math.randm()(10-1 + 1) + 1)
+        
+        // [30, 90]
+        //Math.floor(Math.randm()(90-30 + 1) + 30)
+        // let arr2 = [];
+        // for(let item of arr){
+        //     if(item>=7){
+        //         arr2.push(item)
+        //     }
+        // }
+        let result = arr.filter(function(v, i){
+            return v >=7;
+        })
+        document.write(`<br> total of arr : ${result.join('-')}`);
+
+
+        let color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+        let o = ["th","st","nd","rd"]
+        for(let i=0; i< color.length ;i++){
+            switch(i){
+                case 0:{
+                    document.write(`<br>${i+1}${o[i+1]} is ${color[i]} <br>`);
+                    break;
+                }
+                case 1:{
+                    document.write(`${i+1}${o[i+1]} is ${color[i]} <br> `);
+                    break;
+                }
+                case 2:{
+                    document.write(`${i+1}${o[i+1]} is ${color[i]} <br>`);
+                    break;
+                }
+                default:{
+                    document.write(`${i+1}${o[0]} is ${color[i]} <br>`);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

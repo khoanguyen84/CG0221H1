@@ -1,10 +1,11 @@
 class Student{
-    constructor(name, age, gender, email){
+    constructor(name, age, gender, email, avatar){
         this.id = increment++;
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.email = email;
+        this.avatar = avatar;
     }
 
     // greeting = () => {
@@ -34,9 +35,9 @@ if(window.localStorage.getItem('students') !=null){
 }
 else{
     
-    let duong = new Student("Duong", 18, "male", "duong.vo@codegym.vn");
-    let phong = new Student("Phong", 18, "male", "phong.pham@codegym.vn");
-    let thien = new Student("thien", 18, "male", "thien.nguyen@codegym.vn");
+    let duong = new Student("Duong", 18, "male", "duong.vo@codegym.vn", "/images/duong.jpg");
+    let phong = new Student("Phong", 18, "male", "phong.pham@codegym.vn", "/images/phong.jpg");
+    let thien = new Student("thien", 18, "male", "thien.nguyen@codegym.vn", "/images/duong.jpg");
     students = [duong, phong, thien];
     window.localStorage.setItem('students', JSON.stringify(students));
 }
@@ -48,6 +49,7 @@ function showStudent(){
         tbStudent.innerHTML += `<tr>
                             <td>${index+1}</td>
                             <td>${students[index].name}</td>
+                            <td><img class='avatar' src='${item.avatar}'></td>
                             <td>${item.age}</td>
                             <td>${item.gender}</td>
                             <td>${item.email}</td>
@@ -62,3 +64,10 @@ function ready(){
 }
 
 ready();
+
+
+class Post{
+    constructor(title, content, author, datepublish){
+
+    }
+}

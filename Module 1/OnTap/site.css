@@ -1,0 +1,67 @@
+*,*::after, *::before{
+    padding:0px;
+    margin:0px;
+    font-family: 'Courier New', Courier, monospace;
+    /* font-size: 62.5%;  */
+}
+
+.container{
+    max-width: 900px;
+    margin: 0px auto;
+}
+
+.row{
+    width: 100%;
+    display: block;
+}
+
+
+
+.card{
+    width: 23%;
+    border:1px solid gray;
+    border-radius: 5px;
+    margin: 3px;
+    float:left;
+}
+
+.card-heard{
+    font-weight: 600;
+    background-color: gray;
+    margin-bottom: 2px;
+    padding: 5px;
+}
+
+.card-body{
+    height: 150px;
+}
+.card-footer{
+    background-color: gray;
+    margin-top:2px;
+    padding: 5px;
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.btn{
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.btn-success{
+    background-color: green;
+}
+
+.btn-success:hover{
+    background-color: darkgreen;
+}
+
+@media (max-width:600px){
+    .card{
+        width: 45%;
+    }
+}
